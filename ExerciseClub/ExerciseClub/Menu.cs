@@ -2,69 +2,84 @@
 
 namespace ExerciseClub
 {
-	public class Interaction
+	public class Menu
 	{
 		private string _code;
+		private string _back;
 
-		public Interaction ()
+		public Menu ()
 		{
-			_code = "empty";
 		}
 
 		public void CheckInput()
 		{
-			string back = "Press 0 to return to main menu";
 			_code = Console.ReadLine ();
+			_back = "0. Return to main menu";
 
-			if (_code == "1") 
+			switch (_code) 
 			{
+			case "1":
 				Console.Clear ();
-				Option1 ();
-				Console.WriteLine (back);
-			} 
-			else if (_code == "2") 
-			{
+				Console.WriteLine (Option1 ());
+				Console.WriteLine (_back);
+				Console.Write ("Option: ");
+				break;
+			case "2":
 				Console.Clear ();
-				Option2 ();
-				Console.WriteLine (back);
-			}
-			else if (_code == "3") 
-			{
+				Console.WriteLine (Option2 ());
+				Console.WriteLine (_back);
+				Console.Write ("Option: ");
+				break;
+			case "3":
 				Console.Clear ();
-				Option3 ();
-				Console.WriteLine (back);
-			}
-			else
-			{
+				Console.WriteLine (Option3 ());
+				Console.WriteLine (_back);
+				Console.Write ("Option: ");
+				break;	
+			default:
 				Console.WriteLine ("Please enter one of the numbers that corresponds with the option you want.");
+				break;
 			}
+		}
+	
+		public void RunMenu()
+		{
+			Console.Clear ();
+			Display ();
+			do
+			{
+				CheckInput ();
+			} while (_code != "0");
+			Console.Clear ();
+			Display ();
 		}
 
 		public void Display()
 		{
-			Console.WriteLine ("This is the menu. Please press the number that corresponds with the option you want.");
+			Console.WriteLine ("This is the menu. Please press the key that corresponds with the option you want.");
 			Console.WriteLine ("1. Create user profile");
 			Console.WriteLine ("2. Edit user profile");
 			Console.WriteLine ("3. Create activity");
+			Console.WriteLine ("q. Quit the program");
 			Console.Write ("Option: ");
 		}
-
-		public void Option1()
+	
+		public string Option1()
 		{
+			return "Here you can create a user profile!";
 			//placeholder - replace with actual function when working on that section later
-			Console.WriteLine ("Here you can create a user profile!");
+		}
+	
+		public string Option2()
+		{
+			return "Here you can edit your user profile!";
+			//placeholder - replace with actual function when working on that section later
 		}
 
-		public void Option2()
+		public string Option3()
 		{
+			return "Here you can create an activity!";
 			//placeholder - replace with actual function when working on that section later
-			Console.WriteLine ("Here you can edit your user profile!");
-		}
-
-		public void Option3()
-		{
-			//placeholder - replace with actual function when working on that section later
-			Console.WriteLine ("Here you can create an activity!");
 		}
 	}
 }
