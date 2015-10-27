@@ -4,11 +4,15 @@ namespace ExerciseClub
 {
 	public class Menu
 	{
+        
 		private string _code;
 		private string _back;
 
+        public bool Quit { get; private set; }
+
 		public Menu ()
 		{
+            Quit = false;
 		}
 
 		public void CheckInput()

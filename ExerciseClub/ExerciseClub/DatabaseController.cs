@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace ExerciseClub
 {
-    public class Database
+    public class DatabaseController
     {
         //Fields
         private string _fileLocation;
-        private List<string[]> _data = new List<string[]>();
 
 
         //Constructor
-        public Database(string fileLocation)
+        public DatabaseController(string fileLocation)
         {
             _fileLocation = fileLocation;
         }
-        public Database() : this(@"info/save.txt")
+        public DatabaseController() : this(@"info/profiles.txt")
         {
         }
 
         
 
         //Methods
-        private void LoadData()
+        public List<string[]> LoadData()
         {
-            _data.Clear();
+            List<string[]> result = new List<string[]>();
+            result.Clear();
             int counter = 0;
             string line;
 
@@ -36,19 +36,21 @@ namespace ExerciseClub
 
             while ((line = sr.ReadLine()) != null)
             {
-                _data.Add(line.Split(','));
+                result.Add(line.Split(','));
                 counter++;
             }
             sr.Close();
+
+            return result;
         }
 
-        private void SaveData()
+        public void SaveData(List<string> data)
         {
             StreamWriter sw = new StreamWriter(_fileLocation);
 
-            foreach (string[] line in _data)
+            foreach (string line in data)
             {
-                sw.WriteLine(String.Join(",",line));
+                sw.WriteLine(line);
             }
         }
     }

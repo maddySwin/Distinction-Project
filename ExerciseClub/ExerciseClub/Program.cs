@@ -10,12 +10,13 @@ namespace ExerciseClub
     {
         static void Main(string[] args)
 		{
-			Menu mainMenu = new Menu();
-
+            Controller app = new Controller();
+            app.StartApp();
 			do 
 			{
-				mainMenu.RunMenu ();
-			} while (Console.ReadLine () != "q");
+				app.RunApp ();
+			} while (!app.Quit);
+            app.CloseApp();
         }
     }
 }
