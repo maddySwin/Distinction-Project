@@ -1,0 +1,9 @@
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\obj\Debug\ExerciseClubTest.csprojResolveAssemblyReference.cache
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\ExerciseClubTest.dll
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\ExerciseClubTest.pdb
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\nunit.framework.dll
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\nunit.framework.xml
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\obj\Debug\ExerciseClubTest.dll
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\obj\Debug\ExerciseClubTest.pdb
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\ExerciseClub.exe
+D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\ExerciseClub.pdb
