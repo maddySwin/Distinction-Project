@@ -121,21 +121,6 @@ namespace ExerciseClub
 		}
 
 		/// <summary>
-		/// Runs the menu.
-		/// </summary>
-		public void RunMenu()
-		{
-			Display ();
-			do
-			{
-				CheckInput ();
-			} while (_code != "0");
-			Console.Clear ();
-			Display ();
-		}
-
-
-		/// <summary>
 		/// This is the initial menu display showing the options available
 		/// </summary>
 		public void Display()
