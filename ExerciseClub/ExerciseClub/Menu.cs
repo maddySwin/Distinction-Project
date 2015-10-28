@@ -55,6 +55,10 @@ namespace ExerciseClub
             return (username + "," + password);
         }
 
+        /// <summary>
+        /// Run the menu to create a user
+        /// </summary>
+        /// <returns>Returns a profile in string form</returns>
         public string CreateUser()
         {
             string profileString = "";

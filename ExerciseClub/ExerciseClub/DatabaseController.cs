@@ -65,6 +65,8 @@ namespace ExerciseClub
             {
                 sw.WriteLine(line);
             }
+
+            sw.Close();
         }
     }
 }
