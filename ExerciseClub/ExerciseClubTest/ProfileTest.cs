@@ -11,7 +11,8 @@ namespace ExerciseClubTest
         public void TestCreation()
         {
             string testName = "Steve";
-            Profile myProfile = new Profile(testName);
+            string testUsername = "sJones";
+            Profile myProfile = new Profile(testUsername, testName);
 
             StringAssert.AreEqualIgnoringCase(testName, myProfile.Name, "Name not the same");
         }
@@ -20,10 +21,24 @@ namespace ExerciseClubTest
         public void TestAge()
         {
             string testName = "Steve";
+            string testUsername = "sJones";
             DateTime testDate = new DateTime(2000,01,01);
-            Profile myProfile = new Profile(testName,testDate);
+            Profile myProfile = new Profile(testUsername, testName, testDate);
 
-            Assert.AreEqual(15, myProfile.Age);
+            Assert.AreEqual(DateTime.Now.Year - 2000, myProfile.Age);
         }
+
+        [Test]
+        public void TestToString()
+        {
+            string testName = "Steve";
+            string testUsername = "sJones";
+            DateTime testDate = new DateTime(2000, 01, 01);
+            Profile myProfile = new Profile(testUsername, testName, testDate);
+
+            StringAssert.AreEqualIgnoringCase("sJones,Steve,20000101,Hawthorn,About Me", myProfile.ToString);
+        }
+
+
     }
 }

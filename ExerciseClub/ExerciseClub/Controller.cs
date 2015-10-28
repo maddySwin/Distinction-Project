@@ -41,7 +41,20 @@ namespace ExerciseClub
             temp = _datebase.LoadData();
             foreach(string[] line in temp)
             {
-                _users.Add(new Profile(line[0]));
+                DateTime dob = default(DateTime);
+                try
+                {
+                    string year = line[3].Substring(0, 4);
+                    string month = line[3].Substring(4, 2);
+                    string day = line[3].Substring(6, 2);
+                    dob = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    //Datetime not set for user
+                    dob = default(DateTime);
+                }
+                _users.Add(new Profile(line[0], line[1], line[2], dob, line[4], line[5]));
             }
         }
 

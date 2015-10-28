@@ -14,17 +14,26 @@ namespace ExerciseClub
 
 
         //Constructor
+        /// <summary>
+        /// Custom Constructor for database controller, Can set output file path
+        /// </summary>
+        /// <param name="fileLocation">String file path for database</param>
         public DatabaseController(string fileLocation)
         {
             _fileLocation = fileLocation;
         }
+        /// <summary>
+        /// Default constructor for Database controller
+        /// </summary>
         public DatabaseController() : this(@"info/profiles.txt")
         {
         }
 
-        
-
         //Methods
+        /// <summary>
+        /// Reads all lines from a text file database and Returns as a list of string arrays
+        /// </summary>
+        /// <returns>List of string arrays representing data</returns>
         public List<string[]> LoadData()
         {
             List<string[]> result = new List<string[]>();
@@ -44,6 +53,10 @@ namespace ExerciseClub
             return result;
         }
 
+        /// <summary>
+        /// Writes the given list of strings to a text file
+        /// </summary>
+        /// <param name="data">Data to be written</param>
         public void SaveData(List<string> data)
         {
             StreamWriter sw = new StreamWriter(_fileLocation);
