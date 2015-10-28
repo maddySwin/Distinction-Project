@@ -89,8 +89,10 @@ namespace ExerciseClub
 
             //Show account details
             Console.Clear();
-            Console.WriteLine(currentLogin.Username + " " + currentLogin.Name + " " + currentLogin.Age);
-            if (Console.ReadLine() == "q") Quit = true;
+            Console.WriteLine("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
+            _mainMenu.Display();
+            _mainMenu.CheckInput();
+            if (_mainMenu.CheckInput() == "quit") Quit = true;
         }
 
         /// <summary>
