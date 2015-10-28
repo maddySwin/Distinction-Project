@@ -58,7 +58,7 @@ namespace ExerciseClub
                 }
                 else
                 {
-                    string[] inputs = input.Split();
+                    string[] inputs = input.Split(',');
                     foreach (Profile p in _users)
                     {
                         if (p.Username == inputs[0]) //Username matches profile

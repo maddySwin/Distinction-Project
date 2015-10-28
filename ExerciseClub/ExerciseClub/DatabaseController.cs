@@ -59,14 +59,14 @@ namespace ExerciseClub
         /// <param name="data">Data to be written</param>
         public void SaveData(List<string> data)
         {
-            StreamWriter sw = new StreamWriter(_fileLocation);
-
+            //StreamWriter sw = new StreamWriter(_fileLocation);
+            string output = "";
             foreach (string line in data)
             {
-                sw.WriteLine(line);
+                output += line + "\n";
             }
-
-            sw.Close();
+            File.WriteAllText(_fileLocation, output);
+            //sw.Close();
         }
     }
 }
