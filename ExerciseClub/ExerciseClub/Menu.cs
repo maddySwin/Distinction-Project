@@ -2,16 +2,16 @@
 
 namespace ExerciseClub
 {
-	public class Menu
-	{
+    public class Menu
+    {
         //Fields
-		private string _code;
-		private string _back;
+        private string _code;
+        private string _back;
 
         //Constructor
-		public Menu ()
-		{
-		}
+        public Menu()
+        {
+        }
 
         //Methods
         /// <summary>
@@ -65,7 +65,7 @@ namespace ExerciseClub
             Console.Write("Password: ");
             string password = Console.ReadLine();
             Console.Write("Name: ");
-            string name  = Console.ReadLine();
+            string name = Console.ReadLine();
             Console.Write("Date of Birth (yyyymmdd): ");
             string dob = Console.ReadLine();
             Console.Write("Location: ");
@@ -76,80 +76,94 @@ namespace ExerciseClub
             return profileString;
         }
 
-		/// <summary>
-		/// Checks the input from the user and does something depending on input
-		/// </summary>
-		public string CheckInput()
-		{
-			_code = Console.ReadLine ();
-			_back = "0. Return to main menu";
+        /// <summary>
+        /// Checks the input from the user and does something depending on input
+        /// </summary>
+        public string CheckInput()
+        {
+            _code = Console.ReadLine();
+            _back = "0. Return to main menu";
             string c1 = "case1";
             string c2 = "case2";
             string c3 = "case3";
             string cd = "default";
             string quit = "quit";
 
-			switch (_code) 
-			{
-			case "1":
-				Console.Clear ();
-				Console.WriteLine (Option1 ());
-				Console.WriteLine (_back);
-                Console.WriteLine("q. Quit the program");
-				Console.Write ("Option: ");
-				return c1;
-			case "2":
-				Console.Clear ();
-				Console.WriteLine (Option2 ());
-				Console.WriteLine (_back);
-                Console.WriteLine("q. Quit the program");
-				Console.Write ("Option: ");
-				return c2;
-			case "3":
-				Console.Clear ();
-				Console.WriteLine (Option3 ());
-				Console.WriteLine (_back);
-                Console.WriteLine("q. Quit the program");
-				Console.Write ("Option: ");
-                return c3;	
-            case "q":
-                return quit;
-			default:
-				Console.WriteLine ("Please enter one of the numbers that corresponds with the option you want.");
-                return cd;
-			}
-		}
+            switch (_code)
+            {
+                case "1":
+                    Console.Clear();
+                    Console.WriteLine(Option1());
+                    Console.WriteLine(_back);
+                    Console.WriteLine("q. Quit the program");
+                    Console.Write("Option: ");
+                    return c1;
+                case "2":
+                    Console.Clear();
+                    Console.WriteLine(Option2());
+                    Console.WriteLine(_back);
+                    Console.WriteLine("q. Quit the program");
+                    Console.Write("Option: ");
+                    return c2;
+                case "3":
+                    Console.Clear();
+                    Console.WriteLine(Option3());
+                    Console.WriteLine(_back);
+                    Console.WriteLine("q. Quit the program");
+                    Console.Write("Option: ");
+                    return c3;
+                case "q":
+                    return quit;
+                default:
+                    Console.WriteLine("Please enter one of the numbers that corresponds with the option you want.");
+                    return cd;
+            }
+        }
 
-		/// <summary>
-		/// This is the initial menu display showing the options available
-		/// </summary>
-		public void Display()
-		{
-			Console.WriteLine("This is the main menu. Please press the key that corresponds with the option you want.");
+        /// <summary>
+        /// Runs the menu.
+        /// </summary>
+        public void RunMenu()
+        {
+            Display();
+            do
+            {
+                CheckInput();
+            } while (_code != "0");
+            Console.Clear();
+            Display();
+        }
+
+
+        /// <summary>
+        /// This is the initial menu display showing the options available
+        /// </summary>
+        public void Display()
+        {
+            Console.WriteLine("This is the main menu. Please press the key that corresponds with the option you want.");
             Console.WriteLine("1. Create activity");
             Console.WriteLine("2. Edit user profile");
             Console.WriteLine("3. Logout");
-			Console.WriteLine("q. Quit the program");
-			Console.Write ("Option: ");
-		}
-	
-		public string Option1()
-		{
+            Console.WriteLine("q. Quit the program");
+            Console.Write("Option: ");
+        }
+
+        public string Option1()
+        {
             return "Here you can create an activity!";
-			//placeholder - replace with actual function when working on that section later
-		}
-	
-		public string Option2()
-		{
-			return "Here you can edit your user profile!";
-			//placeholder - replace with actual function when working on that section later
-		}
+            //placeholder - replace with actual function when working on that section later
+        }
 
-		public string Option3()
-		{
-			return "Here you can logout!";
-			//placeholder - replace with actual function when working on that section later
-		}
-	}
+        public string Option2()
+        {
+            return "Here you can edit your user profile!";
+            //placeholder - replace with actual function when working on that section later
+        }
+
+        public string Option3()
+        {
+            return "Here you can logout!";
+            //placeholder - replace with actual function when working on that section later
+        }
+    }
 }
-
