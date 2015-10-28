@@ -86,6 +86,7 @@ namespace ExerciseClub
             string c1 = "case1";
             string c2 = "case2";
             string c3 = "case3";
+            string c0 = "back";
             string cd = "default";
             string quit = "quit";
 
@@ -112,6 +113,10 @@ namespace ExerciseClub
                     Console.WriteLine("q. Quit the program");
                     Console.Write("Option: ");
                     return c3;
+                case "0":
+                    Console.Clear();
+                    Display();
+                    return c0;
                 case "q":
                     return quit;
                 default:
