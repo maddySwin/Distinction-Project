@@ -4,16 +4,81 @@ namespace ExerciseClub
 {
 	public class Menu
 	{
-        
+        //Fields
 		private string _code;
 		private string _back;
 
+        //Auto Properties
         public bool Quit { get; private set; }
 
+        //Constructor
 		public Menu ()
 		{
             Quit = false;
 		}
+
+        //Methods
+        /// <summary>
+        /// Runs login menu and collects login data
+        /// </summary>
+        /// <returns>Username and Password concatinated string</returns>
+        public string Login()
+        {
+            string username = "", password = "";
+            bool valid = false;
+            string option = "";
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Welcome to Exercise Club\n1. Login\n2. Create New Profile");
+                Console.Write("Option: ");
+                option = Console.ReadLine();
+                switch (option)
+                {
+                    case "1":
+                        //Get login information
+                        Console.Clear();
+                        Console.Write("Username: ");
+                        username = Console.ReadLine();
+                        Console.Write("Password: ");
+                        password = Console.ReadLine();
+                        valid = true;
+                        break;
+                    case "2":
+                        //Create new profile
+                        valid = true;
+                        return "new";
+                    default:
+                        Console.WriteLine("Please enter a valid option");
+                        Console.ReadLine();
+                        break;
+                }
+            } while (!valid);
+
+
+            return (username + "," + password);
+        }
+
+        public string CreateUser()
+        {
+            string profileString = "";
+            Console.Clear();
+            Console.WriteLine("Create Account. Please enter all data");
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+            Console.Write("Name: ");
+            string name  = Console.ReadLine();
+            Console.Write("Date of Birth (yyyymmdd): ");
+            string dob = Console.ReadLine();
+            Console.Write("Location: ");
+            string location = Console.ReadLine();
+            Console.Write("Description: ");
+            string desc = Console.ReadLine();
+            profileString = username + "," + password + "," + name + "," + dob + "," + location + "," + desc;
+            return profileString;
+        }
 
 		public void CheckInput()
 		{

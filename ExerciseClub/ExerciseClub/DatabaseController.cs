@@ -12,7 +12,6 @@ namespace ExerciseClub
         //Fields
         private string _fileLocation;
 
-
         //Constructor
         /// <summary>
         /// Custom Constructor for database controller, Can set output file path
@@ -45,6 +44,7 @@ namespace ExerciseClub
 
             while ((line = sr.ReadLine()) != null)
             {
+                Console.WriteLine(line);
                 result.Add(line.Split(','));
                 counter++;
             }

@@ -12,6 +12,7 @@ namespace ExerciseClub
         private List<Profile> _users;
         private DatabaseController _datebase;
         private Menu _mainMenu;
+        private Profile currentLogin;
 
         //Properties
         /// <summary>
@@ -29,6 +30,7 @@ namespace ExerciseClub
             _datebase = new DatabaseController();
             _mainMenu = new Menu();
             Quit = false;
+            currentLogin = null;
         }
         
         //Methods
@@ -41,21 +43,40 @@ namespace ExerciseClub
             temp = _datebase.LoadData();
             foreach(string[] line in temp)
             {
-                DateTime dob = default(DateTime);
-                try
-                {
-                    string year = line[3].Substring(0, 4);
-                    string month = line[3].Substring(4, 2);
-                    string day = line[3].Substring(6, 2);
-                    dob = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    //Datetime not set for user
-                    dob = default(DateTime);
-                }
-                _users.Add(new Profile(line[0], line[1], line[2], dob, line[4], line[5]));
+                _users.Add(MakeProfileFromStringArray(line));
             }
+            //User login / Creation
+            do
+            {
+                string input = _mainMenu.Login();
+                if (input == "new")
+                {
+                    //Create new user and add to _users
+                    Profile newProfile = MakeProfileFromStringArray(_mainMenu.CreateUser().Split(','));
+                    _users.Add(newProfile);
+                    currentLogin = newProfile;
+                }
+                else
+                {
+                    string[] inputs = input.Split();
+                    foreach (Profile p in _users)
+                    {
+                        if (p.Username == inputs[0]) //Username matches profile
+                        {
+                            if (p.Login(inputs[1])) //Password matches
+                            {
+                                currentLogin = p;
+                            }
+                        }
+                    }
+                    if (currentLogin == null)
+                    {
+                        Console.WriteLine("Invalid Login");
+                        Console.ReadLine();
+                    }
+                }
+            } while (currentLogin == null);
+
         }
 
         /// <summary>
@@ -63,8 +84,13 @@ namespace ExerciseClub
         /// </summary>
         public void RunApp()
         {
-            _mainMenu.RunMenu();
-            if (_mainMenu.Quit) Quit = true;
+            //_mainMenu.RunMenu();
+            //if (_mainMenu.Quit) Quit = true;
+
+            //Show account details
+            Console.Clear();
+            Console.WriteLine(currentLogin.Username + " " + currentLogin.Name + " " + currentLogin.Age);
+            if (Console.ReadLine() == "q") Quit = true;
         }
 
         /// <summary>
@@ -78,6 +104,25 @@ namespace ExerciseClub
                 temp.Add(p.ToString);
             }
             _datebase.SaveData(temp);
+        }
+
+        //Private methods
+        private Profile MakeProfileFromStringArray(string[] profileString)
+        {
+            DateTime dob = default(DateTime);
+            try
+            {
+                string year = profileString[3].Substring(0, 4);
+                string month = profileString[3].Substring(4, 2);
+                string day = profileString[3].Substring(6, 2);
+                dob = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                //Datetime not set for user
+                dob = default(DateTime);
+            }
+            return new Profile(profileString[0], profileString[1], profileString[2], dob, profileString[4], profileString[5]);
         }
 
     }
