@@ -8,13 +8,9 @@ namespace ExerciseClub
 		private string _code;
 		private string _back;
 
-        //Auto Properties
-        //public bool Quit { get; private set; }
-
         //Constructor
 		public Menu ()
 		{
-            //Quit = false;
 		}
 
         //Methods
@@ -99,18 +95,21 @@ namespace ExerciseClub
 				Console.Clear ();
 				Console.WriteLine (Option1 ());
 				Console.WriteLine (_back);
+                Console.WriteLine("q. Quit the program");
 				Console.Write ("Option: ");
 				return c1;
 			case "2":
 				Console.Clear ();
 				Console.WriteLine (Option2 ());
 				Console.WriteLine (_back);
+                Console.WriteLine("q. Quit the program");
 				Console.Write ("Option: ");
 				return c2;
 			case "3":
 				Console.Clear ();
 				Console.WriteLine (Option3 ());
 				Console.WriteLine (_back);
+                Console.WriteLine("q. Quit the program");
 				Console.Write ("Option: ");
                 return c3;	
             case "q":

@@ -91,8 +91,15 @@ namespace ExerciseClub
             Console.Clear();
             Console.WriteLine("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
             _mainMenu.Display();
-            _mainMenu.CheckInput();
-            if (_mainMenu.CheckInput() == "quit") Quit = true;
+            string back = Console.ReadLine();
+            do
+            {
+                while (_mainMenu.CheckInput() != "quit")
+                {
+                    Quit = false;
+                }
+            } while (back != "0");
+            Quit = true;
         }
 
         /// <summary>
