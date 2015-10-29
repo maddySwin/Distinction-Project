@@ -16,10 +16,11 @@ namespace ExerciseClub
         public string Location { get; set; }
         public string Description { get; set; }
 
-        public Activity()
-        {
-
-        }
+        //Constructors
+        /// <summary>
+        /// Default constructor for activity
+        /// </summary>
+        public Activity() : this("Running","12:00pm",DateTime.Today,"Hawthorn","A fun run in the park"){}
 
         public Activity(string name, string time, DateTime dateOfActivity, string location, string description)
         {

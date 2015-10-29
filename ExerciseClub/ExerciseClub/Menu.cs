@@ -179,7 +179,7 @@ namespace ExerciseClub
 
         public string Option1()
         {
-            Controller app = new Controller();
+            //Controller app = new Controller();
             //app.StartActivity();
 
             return "Here you can create an activity!";

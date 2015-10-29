@@ -11,7 +11,8 @@ namespace ExerciseClub
         //Fields
         private List<Profile> _users;
         private List<Activity> _activities;
-        private DatabaseController _datebase;
+        private DatabaseController _profileDatabase;
+        private DatabaseController _activityDatabase;
         private Menu _mainMenu;
         private Profile currentLogin;
         private Activity currentActivity;
@@ -29,7 +30,8 @@ namespace ExerciseClub
         public Controller()
         {
             _users = new List<Profile>();
-            _datebase = new DatabaseController();
+            _profileDatabase = new DatabaseController("info/profiles.txt");
+            _activityDatabase = new DatabaseController("info/activities.txt");
             _mainMenu = new Menu();
             Quit = false;
             currentLogin = null;
@@ -42,11 +44,20 @@ namespace ExerciseClub
         /// </summary>
         public void StartApp()
         {
+            //Load users
             List<string[]> temp = new List<string[]>();
-            temp = _datebase.LoadData();
+            temp = _profileDatabase.LoadData();
             foreach(string[] line in temp)
             {
                 _users.Add(MakeProfileFromStringArray(line));
+            }
+            //Load activities
+            temp.Clear();
+            temp = _activityDatabase.LoadData();
+            foreach (string[] line in temp)
+            {
+                _activities.Add(MakeActivityFromStringArray(line));
+                //TO DO: Link activities to users
             }
             //User login / Creation
             do
@@ -88,8 +99,8 @@ namespace ExerciseClub
                 string input = _mainMenu.CheckInput();
                 if (input == "case1")
                 {
-                    //Create new activity and add to _users
-                    Activity newActivity = MakeActivityFromStringArray(_mainMenu.CreateUser().Split(','));
+                    //Create new activity and add to _activities
+                    Activity newActivity = MakeActivityFromStringArray(_mainMenu.CreateActivity().Split(','));
                     _activities.Add(newActivity);
                     currentActivity = newActivity;
                 }
@@ -123,11 +134,19 @@ namespace ExerciseClub
         public void CloseApp()
         {
             List<string> temp = new List<string>();
+            //Save Profiles
             foreach (Profile p in _users)
             {
                 temp.Add(p.ToString);
             }
-            _datebase.SaveData(temp);
+            _profileDatabase.SaveData(temp);
+            temp.Clear();
+            //Save Activities
+            foreach (Activity a in _activities)
+            {
+                temp.Add(a.ToString);
+            }
+            _activityDatabase.SaveData(temp);
         }
 
         //Private methods
@@ -161,7 +180,7 @@ namespace ExerciseClub
             }
             catch (ArgumentOutOfRangeException)
             {
-                //Datetime not set for user
+                //Datetime not set for activity
                 activitydate = default(DateTime);
             }
             return new Activity(activityString[0], activityString[1], activitydate, activityString[3], activityString[4]);
