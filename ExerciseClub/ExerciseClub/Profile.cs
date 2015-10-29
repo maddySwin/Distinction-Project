@@ -40,6 +40,7 @@ namespace ExerciseClub
                 return age;
             }
         }
+
         /// <summary>
         /// Output all data of profile as single string
         /// </summary>
@@ -50,6 +51,7 @@ namespace ExerciseClub
                 return _username + "," + _password + ","+ Name + "," + _dateOfBirth.ToString("yyyMMdd") + "," + Location + "," + Description;
             }
         }
+
         /// <summary>
         /// Get the username for the profile
         /// </summary>
@@ -78,12 +80,14 @@ namespace ExerciseClub
             Location = location;
             Description = description;
         }
+        
         /// <summary>
         /// Constructor for Profile
         /// </summary>
         /// <param name="name">Name of the User</param>
         /// <param name="dateOfBirth">DateTime element date of birth</param>
         public Profile(string username, string password, string name, DateTime dateOfBirth) : this(username, password, name, dateOfBirth, "Hawthorn", "About me") { }
+        
         /// <summary>
         /// Constructor with name for Profile
         /// </summary>

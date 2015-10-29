@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DatabaseController.cs" />
     <Compile Include="Profile.cs" />

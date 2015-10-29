@@ -10,9 +10,11 @@ namespace ExerciseClub
     {
         //Fields
         private List<Profile> _users;
+        private List<Activity> _activities;
         private DatabaseController _datebase;
         private Menu _mainMenu;
         private Profile currentLogin;
+        private Activity currentActivity;
 
         //Properties
         /// <summary>
@@ -31,6 +33,7 @@ namespace ExerciseClub
             _mainMenu = new Menu();
             Quit = false;
             currentLogin = null;
+            currentActivity = null;
         }
         
         //Methods
@@ -76,8 +79,24 @@ namespace ExerciseClub
                     }
                 }
             } while (currentLogin == null);
-
         }
+
+        public void StartActivity()
+        {
+            do
+            {
+                string input = _mainMenu.CheckInput();
+                if (input == "case1")
+                {
+                    //Create new activity and add to _users
+                    Activity newActivity = MakeActivityFromStringArray(_mainMenu.CreateUser().Split(','));
+                    _activities.Add(newActivity);
+                    currentActivity = newActivity;
+                }
+            } while (currentActivity == null);
+        }
+
+
 
         /// <summary>
         /// Run the app. Do the next thing. 
@@ -130,5 +149,22 @@ namespace ExerciseClub
             return new Profile(profileString[0], profileString[1], profileString[2], dob, profileString[4], profileString[5]);
         }
 
+        private Activity MakeActivityFromStringArray(string[] activityString)
+        {
+            DateTime activitydate = default(DateTime);
+            try
+            {
+                string year = activityString[3].Substring(0, 4);
+                string month = activityString[3].Substring(4, 2);
+                string day = activityString[3].Substring(6, 2);
+                activitydate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                //Datetime not set for user
+                activitydate = default(DateTime);
+            }
+            return new Activity(activityString[0], activityString[1], activitydate, activityString[3], activityString[4]);
+        }
     }
 }

@@ -80,6 +80,25 @@ namespace ExerciseClub
             return profileString;
         }
 
+        public string CreateActivity()
+        {
+            string activityString = "";
+            Console.Clear();
+            Console.WriteLine("Create Activity. Please enter all data");
+            Console.Write("Activity Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Time: ");
+            string time = Console.ReadLine();
+            Console.Write("Date of Birth (yyyymmdd): ");
+            string activitydate = Console.ReadLine();
+            Console.Write("Location: ");
+            string location = Console.ReadLine();
+            Console.Write("Description: ");
+            string desc = Console.ReadLine();
+            activityString = name + "," + time + "," + activitydate + "," + location + "," + desc; 
+            return activityString;
+        }
+
         /// <summary>
         /// Checks the input from the user and does something depending on input
         /// </summary>
@@ -97,6 +116,7 @@ namespace ExerciseClub
             switch (_code)
             {
                 case "1":
+                    
                     Console.Clear();
                     Console.WriteLine(Option1());
                     Console.WriteLine(_back);
@@ -132,16 +152,16 @@ namespace ExerciseClub
         /// <summary>
         /// Runs the menu.
         /// </summary>
-        public void RunMenu()
-        {
-            Display();
-            do
-            {
-                CheckInput();
-            } while (_code != "0");
-            Console.Clear();
-            Display();
-        }
+        //public void RunMenu()
+        //{
+         //   Display();
+         //   do
+         //   {
+          //      CheckInput();
+         //   } while (_code != "0");
+        //    Console.Clear();
+        //    Display();
+        //}
 
 
         /// <summary>
@@ -159,6 +179,9 @@ namespace ExerciseClub
 
         public string Option1()
         {
+            Controller app = new Controller();
+            //app.StartActivity();
+
             return "Here you can create an activity!";
             //placeholder - replace with actual function when working on that section later
         }
