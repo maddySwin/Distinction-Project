@@ -44,7 +44,7 @@ namespace ExerciseClub
 
             while ((line = sr.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+                //Console.WriteLine(line);
                 result.Add(line.Split(','));
                 counter++;
             }

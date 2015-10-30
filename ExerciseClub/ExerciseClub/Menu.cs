@@ -108,7 +108,7 @@ namespace ExerciseClub
         /// </summary>
         public string CheckInput()
         {
-            Console.Clear();
+            //Console.Clear();
             Display();
             _code = Console.ReadLine();
             _back = "0. Return to main menu";

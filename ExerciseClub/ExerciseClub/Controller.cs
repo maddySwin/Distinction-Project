@@ -60,7 +60,6 @@ namespace ExerciseClub
                 _activities.Add(MakeActivityFromStringArray(line));
                 //TO DO: Link activities to users
             }
-            LoginCreation();
         }
 
         /// <summary>

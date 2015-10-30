@@ -1,3 +1,1 @@
 Running,12:30,20151101,Hawthorn,Fun
-Swimming,9:00,20151101,Hawthorn,Wet
-,,00010101,,
