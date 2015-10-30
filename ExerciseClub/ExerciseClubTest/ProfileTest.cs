@@ -39,7 +39,7 @@ namespace ExerciseClubTest
             DateTime testDate = new DateTime(2000, 01, 01);
             Profile myProfile = new Profile(testUsername, testPassword, testName, testDate);
 
-            StringAssert.AreEqualIgnoringCase("sJones,12345,Steve,20000101,Hawthorn,About Me", myProfile.ToString);
+            StringAssert.AreEqualIgnoringCase("sJones,12345,Steve,20000101,Hawthorn,About Me", myProfile.ToProfileString);
         }
 
 

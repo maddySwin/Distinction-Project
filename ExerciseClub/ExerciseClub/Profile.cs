@@ -44,11 +44,11 @@ namespace ExerciseClub
         /// <summary>
         /// Output all data of profile as single string
         /// </summary>
-        public string ToString
+        public string ToProfileString
         {
             get
             {
-                return _username + "," + _password + ","+ Name + "," + _dateOfBirth.ToString("yyyMMdd") + "," + Location + "," + Description;
+                return _username + "," + _password + ","+ Name + "," + _dateOfBirth.ToString("yyyyMMdd") + "," + Location + "," + Description;
             }
         }
 

@@ -80,6 +80,10 @@ namespace ExerciseClub
             return profileString;
         }
 
+        /// <summary>
+        /// Runs the menu to create activity
+        /// </summary>
+        /// <returns>Returns an activity in string form</returns>
         public string CreateActivity()
         {
             string activityString = "";
@@ -89,13 +93,13 @@ namespace ExerciseClub
             string name = Console.ReadLine();
             Console.Write("Time: ");
             string time = Console.ReadLine();
-            Console.Write("Date of Birth (yyyymmdd): ");
+            Console.Write("Activity Date (yyyymmdd): ");
             string activitydate = Console.ReadLine();
             Console.Write("Location: ");
             string location = Console.ReadLine();
             Console.Write("Description: ");
             string desc = Console.ReadLine();
-            activityString = name + "," + time + "," + activitydate + "," + location + "," + desc; 
+            activityString = name + "," + time + "," + activitydate + "," + location + "," + desc;
             return activityString;
         }
 
@@ -104,11 +108,13 @@ namespace ExerciseClub
         /// </summary>
         public string CheckInput()
         {
+            Console.Clear();
+            Display();
             _code = Console.ReadLine();
             _back = "0. Return to main menu";
-            string c1 = "case1";
-            string c2 = "case2";
-            string c3 = "case3";
+            string c1 = "new Activity";
+            string c2 = "editProfile";
+            string c3 = "logout";
             string c0 = "back";
             string cd = "default";
             string quit = "quit";
@@ -118,21 +124,21 @@ namespace ExerciseClub
                 case "1":
                     
                     Console.Clear();
-                    Console.WriteLine(Option1());
+                    Console.WriteLine("Here you can create an activity!");
                     Console.WriteLine(_back);
                     Console.WriteLine("q. Quit the program");
                     Console.Write("Option: ");
                     return c1;
                 case "2":
                     Console.Clear();
-                    Console.WriteLine(Option2());
+                    Console.WriteLine("Here you can edit your user profile! (to be implemented)");
                     Console.WriteLine(_back);
                     Console.WriteLine("q. Quit the program");
                     Console.Write("Option: ");
                     return c2;
                 case "3":
                     Console.Clear();
-                    Console.WriteLine(Option3());
+                    Console.WriteLine("Here you can logout!");
                     Console.WriteLine(_back);
                     Console.WriteLine("q. Quit the program");
                     Console.Write("Option: ");
@@ -177,25 +183,5 @@ namespace ExerciseClub
             Console.Write("Option: ");
         }
 
-        public string Option1()
-        {
-            //Controller app = new Controller();
-            //app.StartActivity();
-
-            return "Here you can create an activity!";
-            //placeholder - replace with actual function when working on that section later
-        }
-
-        public string Option2()
-        {
-            return "Here you can edit your user profile!";
-            //placeholder - replace with actual function when working on that section later
-        }
-
-        public string Option3()
-        {
-            return "Here you can logout!";
-            //placeholder - replace with actual function when working on that section later
-        }
     }
 }

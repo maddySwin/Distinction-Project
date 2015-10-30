@@ -31,11 +31,11 @@ namespace ExerciseClub
             Description = description;
         }
 
-        public string ToString
+        public string ToActivityString
         {
             get
             {
-                return Name + "," + _time + "," + _dateOfActivity.ToString("yyyMMdd") + "," + Location + "," + Description;
+                return Name + "," + _time + "," + _dateOfActivity.ToString("yyyyMMdd") + "," + Location + "," + Description;
             }
         }
 
