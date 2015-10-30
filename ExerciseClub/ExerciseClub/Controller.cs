@@ -67,10 +67,6 @@ namespace ExerciseClub
         /// </summary>
         public void RunApp()
         {
-            //Show account details
-            Console.Clear();
-            Console.WriteLine("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
-            _mainMenu.Display();
             string input = "";
             while (input != "quit")
             {
@@ -80,11 +76,19 @@ namespace ExerciseClub
                 }
                 else
                 {
+                    //Show account details
+                    Console.Clear();
+                    Console.WriteLine("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
+                    //_mainMenu.Display();
                     input = _mainMenu.CheckInput();
                     if (input == "new Activity")
                     {
                         //Create new activity and add to _activities
-                        Activity newActivity = MakeActivityFromStringArray(_mainMenu.CreateActivity().Split(','));
+                        string[] temp = _mainMenu.CreateActivity().Split(',');
+                        var make = new String[temp.Length + 1];
+                        temp.CopyTo(make, 1);
+                        make[0] = currentLogin.Username;
+                        Activity newActivity = MakeActivityFromStringArray(make);
                         _activities.Add(newActivity);
                         currentActivity = newActivity;
                         input = "";
@@ -95,7 +99,7 @@ namespace ExerciseClub
                     }
                     else
                     {
-                        Console.ReadLine();//Force wait for input, will display submenus not yet implemented
+                        Console.ReadLine();//Force wait for input, will display submenus not yet implemented, causes double enter on quit
                     }
                 }
                 //Add code for edit profile
@@ -146,12 +150,20 @@ namespace ExerciseClub
 
         private Activity MakeActivityFromStringArray(string[] activityString)
         {
+            Profile owner = new Profile();
+            foreach (Profile p in _users)
+            {
+                if (p.Username == activityString[0])
+                {
+                    owner = p;
+                }
+            }
             DateTime activitydate = default(DateTime);
             try
             {
-                string year = activityString[2].Substring(0, 4);
-                string month = activityString[2].Substring(4, 2);
-                string day = activityString[2].Substring(6, 2);
+                string year = activityString[3].Substring(0, 4);
+                string month = activityString[3].Substring(4, 2);
+                string day = activityString[3].Substring(6, 2);
                 activitydate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
             }
             catch (ArgumentOutOfRangeException)
@@ -159,7 +171,7 @@ namespace ExerciseClub
                 //Datetime not set for activity
                 activitydate = default(DateTime);
             }
-            return new Activity(activityString[0], activityString[1], activitydate, activityString[3], activityString[4]);
+            return new Activity(owner, activityString[1], activityString[2], activitydate, activityString[4], activityString[5]);
         }
 
         private void LoginCreation()

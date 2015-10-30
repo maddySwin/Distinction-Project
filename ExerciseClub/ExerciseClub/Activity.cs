@@ -10,7 +10,7 @@ namespace ExerciseClub
     {
         //Fields
         private string _time;
-        //private Profile _profile;
+        private Profile _owner;
         private DateTime _dateOfActivity;
 
         //Auto-Properties
@@ -23,13 +23,14 @@ namespace ExerciseClub
         {
             get
             {
-                return Name + "," + _time + "," + _dateOfActivity.ToString("yyyyMMdd") + "," + Location + "," + Description;
+                return _owner.Username + "," + Name + "," + _time + "," + _dateOfActivity.ToString("yyyyMMdd") + "," + Location + "," + Description;
             }
         }
 
         //Constructors
-        public Activity(string name, string time, DateTime dateOfActivity, string location, string description)
+        public Activity(Profile owner, string name, string time, DateTime dateOfActivity, string location, string description)
         {
+            _owner = owner;
             Name = name;
             _time = time;
             _dateOfActivity = dateOfActivity;
@@ -39,7 +40,7 @@ namespace ExerciseClub
         /// <summary>
         /// Default constructor for activity
         /// </summary>
-        public Activity() : this("Running", "12:00pm", DateTime.Today, "Hawthorn", "A fun run in the park") { }
+        public Activity() : this(new Profile(), "Running", "12:00pm", DateTime.Today, "Hawthorn", "A fun run in the park") { }
 
 
         

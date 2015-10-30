@@ -93,7 +93,13 @@ namespace ExerciseClub
         /// </summary>
         /// <param name="name">Name for the profile</param>
         public Profile(string username, string password, string name) : this(username, password, name, new DateTime(1990, 1, 1)) { }
-        
+
+        /// <summary>
+        /// Default constructor for Profile
+        /// </summary>
+        public Profile() : this("jsmith", "12345", "John Smith") { }
+
+
         //Methods
         /// <summary>
         /// Checks login information
