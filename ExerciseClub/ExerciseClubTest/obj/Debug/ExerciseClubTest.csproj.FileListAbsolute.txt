@@ -7,3 +7,5 @@ D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClu
 D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\obj\Debug\ExerciseClubTest.pdb
 D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\ExerciseClub.exe
 D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClubTest\bin\Debug\ExerciseClub.pdb
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClubTest\obj\Debug\ExerciseClubTest.csprojResolveAssemblyReference.cache
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClubTest\obj\Debug\ExerciseClubTest.dll

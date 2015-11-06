@@ -6,3 +6,11 @@ D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClu
 D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClub\obj\Debug\ExerciseClub.csprojResolveAssemblyReference.cache
 D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClub\obj\Debug\ExerciseClub.exe
 D:\Documents\Uni\DevelopmentProject\Distinction-Project\ExerciseClub\ExerciseClub\obj\Debug\ExerciseClub.pdb
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\bin\Debug\ExerciseClub.exe.config
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\bin\Debug\ExerciseClub.exe
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\bin\Debug\ExerciseClub.pdb
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\bin\Debug\nunit.framework.dll
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\bin\Debug\nunit.framework.xml
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\obj\Debug\ExerciseClub.csprojResolveAssemblyReference.cache
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\obj\Debug\ExerciseClub.exe
+D:\UNI\SWE20001\Distinction-Project\ExerciseClub\ExerciseClub\obj\Debug\ExerciseClub.pdb

@@ -2,20 +2,16 @@
 
 namespace ExerciseClub
 {
-	public class Menu
-	{
+    public class Menu
+    {
         //Fields
-		private string _code;
-		private string _back;
-
-        //Auto Properties
-        public bool Quit { get; private set; }
+        private string _code;
+        private string _back;
 
         //Constructor
-		public Menu ()
-		{
-            Quit = false;
-		}
+        public Menu()
+        {
+        }
 
         //Methods
         /// <summary>
@@ -59,6 +55,10 @@ namespace ExerciseClub
             return (username + "," + password);
         }
 
+        /// <summary>
+        /// Run the menu to create a user
+        /// </summary>
+        /// <returns>Returns a profile in string form</returns>
         public string CreateUser()
         {
             string profileString = "";
@@ -69,7 +69,7 @@ namespace ExerciseClub
             Console.Write("Password: ");
             string password = Console.ReadLine();
             Console.Write("Name: ");
-            string name  = Console.ReadLine();
+            string name = Console.ReadLine();
             Console.Write("Date of Birth (yyyymmdd): ");
             string dob = Console.ReadLine();
             Console.Write("Location: ");
@@ -80,76 +80,108 @@ namespace ExerciseClub
             return profileString;
         }
 
-		public void CheckInput()
-		{
-			_code = Console.ReadLine ();
-			_back = "0. Return to main menu";
+        /// <summary>
+        /// Runs the menu to create activity
+        /// </summary>
+        /// <returns>Returns an activity in string form</returns>
+        public string CreateActivity()
+        {
+            string activityString = "";
+            Console.Clear();
+            Console.WriteLine("Create Activity. Please enter all data");
+            Console.Write("Activity Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Time: ");
+            string time = Console.ReadLine();
+            Console.Write("Activity Date (yyyymmdd): ");
+            string activitydate = Console.ReadLine();
+            Console.Write("Location: ");
+            string location = Console.ReadLine();
+            Console.Write("Description: ");
+            string desc = Console.ReadLine();
+            activityString = name + "," + time + "," + activitydate + "," + location + "," + desc;
+            return activityString;
+        }
 
-			switch (_code) 
-			{
-			case "1":
-				Console.Clear ();
-				Console.WriteLine (Option1 ());
-				Console.WriteLine (_back);
-				Console.Write ("Option: ");
-				break;
-			case "2":
-				Console.Clear ();
-				Console.WriteLine (Option2 ());
-				Console.WriteLine (_back);
-				Console.Write ("Option: ");
-				break;
-			case "3":
-				Console.Clear ();
-				Console.WriteLine (Option3 ());
-				Console.WriteLine (_back);
-				Console.Write ("Option: ");
-				break;	
-			default:
-				Console.WriteLine ("Please enter one of the numbers that corresponds with the option you want.");
-				break;
-			}
-		}
-	
-		public void RunMenu()
-		{
-			Console.Clear ();
-			Display ();
-			do
-			{
-				CheckInput ();
-			} while (_code != "0");
-			Console.Clear ();
-			Display ();
-		}
+        /// <summary>
+        /// Checks the input from the user and does something depending on input
+        /// </summary>
+        public string CheckInput()
+        {
+            //Console.Clear();
+            Display();
+            _code = Console.ReadLine();
+            _back = "0. Return to main menu";
+            string c1 = "new Activity";
+            string c2 = "editProfile";
+            string c3 = "logout";
+            string c0 = "back";
+            string cd = "default";
+            string quit = "quit";
 
-		public void Display()
-		{
-			Console.WriteLine ("This is the menu. Please press the key that corresponds with the option you want.");
-			Console.WriteLine ("1. Create user profile");
-			Console.WriteLine ("2. Edit user profile");
-			Console.WriteLine ("3. Create activity");
-			Console.WriteLine ("q. Quit the program");
-			Console.Write ("Option: ");
-		}
-	
-		public string Option1()
-		{
-			return "Here you can create a user profile!";
-			//placeholder - replace with actual function when working on that section later
-		}
-	
-		public string Option2()
-		{
-			return "Here you can edit your user profile!";
-			//placeholder - replace with actual function when working on that section later
-		}
+            switch (_code)
+            {
+                case "1":
+                    
+                    Console.Clear();
+                    Console.WriteLine("Here you can create an activity!");
+                    Console.WriteLine(_back);
+                    Console.WriteLine("q. Quit the program");
+                    Console.Write("Option: ");
+                    return c1;
+                case "2":
+                    Console.Clear();
+                    Console.WriteLine("Here you can edit your user profile! (to be implemented)");
+                    Console.WriteLine(_back);
+                    Console.WriteLine("q. Quit the program");
+                    Console.Write("Option: ");
+                    return c2;
+                case "3":
+                    Console.Clear();
+                    Console.WriteLine("Here you can logout!");
+                    Console.WriteLine(_back);
+                    Console.WriteLine("q. Quit the program");
+                    Console.Write("Option: ");
+                    return c3;
+                case "0":
+                    Console.Clear();
+                    Display();
+                    return c0;
+                case "q":
+                    return quit;
+                default:
+                    Console.WriteLine("Please enter one of the numbers that corresponds with the option you want.");
+                    return cd;
+            }
+        }
 
-		public string Option3()
-		{
-			return "Here you can create an activity!";
-			//placeholder - replace with actual function when working on that section later
-		}
-	}
+        /// <summary>
+        /// Runs the menu.
+        /// </summary>
+        //public void RunMenu()
+        //{
+         //   Display();
+         //   do
+         //   {
+          //      CheckInput();
+         //   } while (_code != "0");
+        //    Console.Clear();
+        //    Display();
+        //}
+
+
+        /// <summary>
+        /// This is the initial menu display showing the options available
+        /// </summary>
+        public void Display()
+        {
+            Console.WriteLine("This is the main menu. Please press the key that corresponds with the option you want.");
+            Console.WriteLine("1. Create activity");
+            Console.WriteLine("2. Edit user profile");
+            Console.WriteLine("3. Logout");
+            Console.WriteLine("q. Quit the program");
+            Console.Write("Option: ");
+        }
+
+    }
 }
-

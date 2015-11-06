@@ -15,9 +15,9 @@ namespace ExerciseClubTest
 			string option2 = mainMenu.Option2 ();
 			string option3 = mainMenu.Option3 ();
 
-			Assert.IsTrue (option1 == "Here you can create a user profile!");
-			Assert.IsTrue (option2 == "Here you can edit your user profile!");
-			Assert.IsTrue (option3 == "Here you can create an activity!");
+            Assert.IsTrue(option1 == "Here you can create an activity!");
+			Assert.IsTrue(option2 == "Here you can edit your user profile!");
+            Assert.IsTrue(option3 == "Here you can logout!");
         }
     }
 }

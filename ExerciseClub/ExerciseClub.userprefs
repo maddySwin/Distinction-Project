@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="ExerciseClub\ExerciseClub.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\BattleshipTestClass.cs">
+    <Files>
+      <File FileName="ExerciseClubTest\ActivityTest.cs" Line="1" Column="1" />
+      <File FileName="ExerciseClubTest\DatabaseTest.cs" Line="1" Column="1" />
+      <File FileName="ExerciseClubTest\MenuTest.cs" Line="1" Column="1" />
+      <File FileName="ExerciseClubTest\ProfileTest.cs" Line="1" Column="1" />
+      <File FileName="..\..\BattleshipTestClass.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

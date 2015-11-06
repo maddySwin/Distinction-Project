@@ -40,16 +40,18 @@ namespace ExerciseClub
                 return age;
             }
         }
+
         /// <summary>
         /// Output all data of profile as single string
         /// </summary>
-        public string ToString
+        public string ToProfileString
         {
             get
             {
-                return _username + "," + _password + ","+ Name + "," + _dateOfBirth.ToString("yyyMMdd") + "," + Location + "," + Description;
+                return _username + "," + _password + ","+ Name + "," + _dateOfBirth.ToString("yyyyMMdd") + "," + Location + "," + Description;
             }
         }
+
         /// <summary>
         /// Get the username for the profile
         /// </summary>
@@ -78,18 +80,26 @@ namespace ExerciseClub
             Location = location;
             Description = description;
         }
+        
         /// <summary>
         /// Constructor for Profile
         /// </summary>
         /// <param name="name">Name of the User</param>
         /// <param name="dateOfBirth">DateTime element date of birth</param>
         public Profile(string username, string password, string name, DateTime dateOfBirth) : this(username, password, name, dateOfBirth, "Hawthorn", "About me") { }
+        
         /// <summary>
         /// Constructor with name for Profile
         /// </summary>
         /// <param name="name">Name for the profile</param>
         public Profile(string username, string password, string name) : this(username, password, name, new DateTime(1990, 1, 1)) { }
-        
+
+        /// <summary>
+        /// Default constructor for Profile
+        /// </summary>
+        public Profile() : this("jsmith", "12345", "John Smith") { }
+
+
         //Methods
         /// <summary>
         /// Checks login information
