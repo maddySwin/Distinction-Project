@@ -19,7 +19,7 @@ namespace ExerciseClub
 
         //Methods
         /// <summary>
-        /// Runs login menu and collects login data
+        /// Runs login menu and collects login data from the user
         /// </summary>
         /// <returns>Username and Password concatinated string</returns>
         public string Login()
