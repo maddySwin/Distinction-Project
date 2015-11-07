@@ -10,26 +10,29 @@ namespace ExerciseClubTest
         [Test()]
         public void TestCreateNewActivity()
         {
-            string testActivity = "Tennis";
-            string testTime = "7:30";
+            string testActivity = "Running";
             DateTime testDate = new DateTime(2000, 01, 01);
-            string testLocation = "Rodlaver Arena";
-            string testDescription = "TEST";
-            Activity myActivity = new Activity(testActivity, testTime, testDate, testLocation, testDescription);
+            Profile myProfile = new Profile();
+            
+            Activity myActivity = new Activity();
 
-            StringAssert.AreEqualIgnoringCase(testActivity, myActivity.Name, "Name not the same");
+            StringAssert.AreEqualIgnoringCase(testActivity, myActivity.Name, "Name the same");
         }
 
         [Test()]
         public void TestCreateCustomActivity()
         {
-            Activity activity = new Activity("Basketball", "11:00", DateTime(2015, 10, 27), "Hawthorn", "Play a game of basketball");
+            string testActivity = "Tennis";
+            string testLocation = "Rodlaver Arena";
+            string testDescription = "TEST";
+            DateTime testDate = new DateTime(2000, 01, 01);
+            Profile myProfile = new Profile();
 
-            Assert.AreSame("Basketball", activity.Name);
-            Assert.AreSame("11:00", activity.Time);
-            Assert.AreSame(DateTime(2015, 10, 27), activity.Date);
-            Assert.AreSame("Hawthorn", activity.Location);
-            Assert.AreSame("Play a game of basketball", activity.Description);
+            Activity activity = new Activity(myProfile, "Tennis", "7:30", testDate, "Rodlaver Arena", "TEST");
+
+            Assert.AreSame(testActivity, activity.Name);
+            Assert.AreSame(testLocation, activity.Location);
+            Assert.AreSame(testDescription, activity.Description);
         }
 
         [Test()]

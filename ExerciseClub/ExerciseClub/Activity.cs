@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExerciseClub
 {
-    class Activity
+    public class Activity
     {
         //Fields
         private string _time;
@@ -14,7 +14,7 @@ namespace ExerciseClub
         private DateTime _dateOfActivity;
 
         //Auto-Properties
-        public string Name { get; private set; }
+        public string Name { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }
 
