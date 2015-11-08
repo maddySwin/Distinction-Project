@@ -76,24 +76,39 @@ namespace ExerciseClub
                 }
                 else
                 {
-                    //Show account details
-                    Console.Clear();
-                    Console.WriteLine("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
-                    
                     //Display menu
-                    input = _Menu.MainMenu();
+                    input = _Menu.MainMenu("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
                     if (input == "Activity")
                     {
-
-                        //Create new activity and add to _activities
-                        string[] temp = _Menu.CreateActivity().Split(',');
-                        var make = new String[temp.Length + 1];
-                        temp.CopyTo(make, 1);
-                        make[0] = currentLogin.Username;
-                        Activity newActivity = MakeActivityFromStringArray(make);
-                        _activities.Add(newActivity);
-                        currentActivity = newActivity;
-                        input = "";
+                        input = _Menu.ActivityMenu("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
+                        if (input == "Create")
+                        {
+                            //Create new activity and add to _activities
+                            string[] temp = _Menu.CreateActivity().Split(',');
+                            var make = new String[temp.Length + 1];
+                            temp.CopyTo(make, 1);
+                            make[0] = currentLogin.Username;
+                            Activity newActivity = MakeActivityFromStringArray(make);
+                            _activities.Add(newActivity);
+                            currentActivity = newActivity;
+                            input = "Activity";
+                        }
+                        else if (input == "View")
+                        {
+                            //HUGH VIEW ACTIVITY CODE GOES HERE
+                            //To do add code for view activities
+                            Console.WriteLine("Here you can view activities");
+                            Console.ReadLine();
+                            input = "Activity";
+                        }
+                        else
+                        {
+                            input = "";
+                        }
+                    }
+                    else if (input == "Profile")
+                    {
+                        //To do add profile viewing and editing
                     }
                     else if (input == "logout")
                     {
@@ -101,7 +116,7 @@ namespace ExerciseClub
                     }
                     else
                     {
-                        Console.ReadLine();//Force wait for input, will display submenus not yet implemented, causes double enter on quit
+                        //Console.ReadLine();//Force wait for input, will display submenus not yet implemented, causes double enter on quit
                     }
                 }
                 Quit = false;

@@ -102,15 +102,18 @@ namespace ExerciseClub
             activityString = name + "," + time + "," + activitydate + "," + location + "," + desc;
             return activityString;
         }
-
+        
         /// <summary>
         /// Runs the main menu
         /// </summary>
-        public string MainMenu()
+        /// <param name="CurrentLogin">Current user login display</param>
+        /// <returns>User option for main menu</returns>
+        public string MainMenu(string CurrentLogin)
         {
             //Display intial menu
             Console.Clear();
-            Display();
+            Console.WriteLine(CurrentLogin); //Show account details 
+            DisplayMain();
             string input = Console.ReadLine();
             string output = "";
             //Loop until valid input
@@ -130,12 +133,15 @@ namespace ExerciseClub
                     case "logout":
                         output = "logout";
                         break;
+                    case "quit":
                     case "q":
                         output = "quit";
                         break;
                     default:
+                        Console.Clear();
+                        Console.WriteLine(CurrentLogin); //Show account details 
                         Console.WriteLine("Please enter a valid option.");
-                        Display();
+                        DisplayMain();
                         input = Console.ReadLine();
                         break;
                 }
@@ -143,15 +149,50 @@ namespace ExerciseClub
             return output;
         }
 
-        public string ActivityMenu()
+        /// <summary>
+        /// Runs activity submenu
+        /// </summary>
+        /// <param name="CurrentLogin">Current user login display</param>
+        /// <returns>User selected Option</returns>
+        public string ActivityMenu(string CurrentLogin)
         {
-
-            return "";
+            Console.Clear();
+            Console.WriteLine(CurrentLogin); //Show account details 
+            DisplayAct();
+            string input = Console.ReadLine();
+            string output = "";
+            //Loop until valid input
+            do
+            {
+                switch (input.ToLower())
+                {
+                    case "1":
+                    case "activity":
+                        output = "View";
+                        break;
+                    case "2":
+                    case "profile":
+                        output = "Create";
+                        break;
+                    case "3":
+                    case "Return":
+                        output = "Back";
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine(CurrentLogin); //Show account details 
+                        Console.WriteLine("Please enter a valid option.");
+                        DisplayAct();
+                        input = Console.ReadLine();
+                        break;
+                }
+            } while (output == "");
+            return output;
         }
 
 
         //Private Methods
-        private void Display()
+        private void DisplayMain()
         {
             Console.WriteLine("This is the main menu. Please press the key that corresponds with the option you want.");
             Console.WriteLine("1. Create activity");
@@ -160,6 +201,16 @@ namespace ExerciseClub
             Console.WriteLine("q. Quit the program");
             Console.Write("Option: ");
         }
+
+        private void DisplayAct()
+        {
+            Console.WriteLine("Activity Menu. Enter your selection.");
+            Console.WriteLine("1. View my Activities");
+            Console.WriteLine("2. Add new activity");
+            Console.WriteLine("3. Return to main menu");
+            Console.Write("Option: ");
+        }
+
 
     }
 }
