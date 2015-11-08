@@ -9,8 +9,7 @@ namespace ExerciseClub
     public class Activity
     {
         //Fields
-        private string _time;
-        private Profile _owner;
+        public Profile Owner;
         private DateTime _dateOfActivity;
 
         //Auto-Properties
@@ -24,14 +23,14 @@ namespace ExerciseClub
         {
             get
             {
-                return _owner.Username + "," + Name + "," + Time + "," + _dateOfActivity.ToString("yyyyMMdd") + "," + Location + "," + Description;
+                return Owner.Username + "," + Name + "," + Time + "," + _dateOfActivity.ToString("yyyyMMdd") + "," + Location + "," + Description;
             }
         }
 
         //Constructors
         public Activity(Profile owner, string name, string time, DateTime dateOfActivity, string location, string description)
         {
-            _owner = owner;
+            Owner = owner;
             Name = name;
             Time = time;
             _dateOfActivity = dateOfActivity;

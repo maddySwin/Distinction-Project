@@ -96,11 +96,19 @@ namespace ExerciseClub
                         else if (input == "View")
                         {
                             //Initial code for viewing activities. This is just to view current activity.
-                            Console.WriteLine("Here is your current activity: " + currentActivity.Name);
-                            Console.WriteLine("Location: " + currentActivity.Location);
-                            Console.WriteLine("Time: " + currentActivity.Time);
-                            Console.WriteLine("Description: " + currentActivity.Description);
-                            
+                            List<Activity> myActivities = new List<Activity>();
+                            foreach (Activity a in _activities)
+                            {
+                                if (currentLogin == a.Owner)
+                                {
+                                    myActivities.Add(a);
+                                }
+                            }
+                            foreach (Activity a in myActivities)
+                            {
+                                Console.WriteLine("Activity: {0}, Location: {1}, Time: {2}, Description: {3} ", a.Name, a.Location, a.Time, a.Description);
+                            }
+                        
                             Console.ReadLine();
                             input = "Activity";
                         }
