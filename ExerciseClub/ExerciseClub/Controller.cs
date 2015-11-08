@@ -95,9 +95,12 @@ namespace ExerciseClub
                         }
                         else if (input == "View")
                         {
-                            //HUGH VIEW ACTIVITY CODE GOES HERE
-                            //To do add code for view activities
-                            Console.WriteLine("Here you can view activities");
+                            //Initial code for viewing activities. This is just to view current activity.
+                            Console.WriteLine("Here is your current activity: " + currentActivity.Name);
+                            Console.WriteLine("Location: " + currentActivity.Location);
+                            Console.WriteLine("Time: " + currentActivity.Time);
+                            Console.WriteLine("Description: " + currentActivity.Description);
+                            
                             Console.ReadLine();
                             input = "Activity";
                         }

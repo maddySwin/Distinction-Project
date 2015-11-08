@@ -1,2 +1,3 @@
 jc,Running,12:30,20151201,Hawthorn,Fun
 jc,Swimming,1:00,20151201,Hawthorn,Wet
+HR,Tennis,7:30,20151010,Park,Fun!

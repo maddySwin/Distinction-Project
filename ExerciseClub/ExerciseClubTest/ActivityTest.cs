@@ -35,24 +35,24 @@ namespace ExerciseClubTest
             Assert.AreSame(testDescription, activity.Description);
         }
 
-        [Test()]
-        public void TestEditActivity()
-        {
-            Activity activity = new Activity();
+//        [Test()]
+//        public void TestEditActivity()
+//        {
+//            Activity activity = new Activity();
 
-            EditActivity(1, "Jog");
+//            EditActivity(1, "Jog");
 
-            Assert.AreSame("Jog", activity.Name);
-        }
+//            Assert.AreSame("Jog", activity.Name);
+//        }
 
-        [Test()]
-        public void TestFindActivity()
-        {
-            User user = new User();
-            Activity activity = new Activity();
+//        [Test()]
+//        public void TestFindActivity()
+//        {
+//            User user = new User();
+//            Activity activity = new Activity();
 
-            Assert.AreSame(activity, user.FindActivity("Run"));
-            Assert.AreSame(activity, user.FindActivity("Go for a 5k run"));
-        }
+//            Assert.AreSame(activity, user.FindActivity("Run"));
+//            Assert.AreSame(activity, user.FindActivity("Go for a 5k run"));
+//        }
     }
 }

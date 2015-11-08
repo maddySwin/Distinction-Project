@@ -15,6 +15,7 @@ namespace ExerciseClub
 
         //Auto-Properties
         public string Name { get; set; }
+        public string Time { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }
 
@@ -23,7 +24,7 @@ namespace ExerciseClub
         {
             get
             {
-                return _owner.Username + "," + Name + "," + _time + "," + _dateOfActivity.ToString("yyyyMMdd") + "," + Location + "," + Description;
+                return _owner.Username + "," + Name + "," + Time + "," + _dateOfActivity.ToString("yyyyMMdd") + "," + Location + "," + Description;
             }
         }
 
@@ -32,7 +33,7 @@ namespace ExerciseClub
         {
             _owner = owner;
             Name = name;
-            _time = time;
+            Time = time;
             _dateOfActivity = dateOfActivity;
             Location = location;
             Description = description;
