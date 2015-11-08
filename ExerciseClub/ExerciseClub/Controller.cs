@@ -104,11 +104,14 @@ namespace ExerciseClub
                                     myActivities.Add(a);
                                 }
                             }
+                            Console.Clear();
+                            Console.WriteLine("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
+                            Console.WriteLine("Your activities:");
                             foreach (Activity a in myActivities)
                             {
                                 Console.WriteLine("Activity: {0}, Location: {1}, Time: {2}, Description: {3} ", a.Name, a.Location, a.Time, a.Description);
                             }
-                        
+                            Console.WriteLine("Enter to return");
                             Console.ReadLine();
                             input = "Activity";
                         }
