@@ -167,15 +167,15 @@ namespace ExerciseClub
                 switch (input.ToLower())
                 {
                     case "1":
-                    case "activity":
+                    case "view":
                         output = "View";
                         break;
                     case "2":
-                    case "profile":
+                    case "create":
                         output = "Create";
                         break;
                     case "3":
-                    case "Return":
+                    case "return":
                         output = "Back";
                         break;
                     default:
@@ -195,8 +195,8 @@ namespace ExerciseClub
         private void DisplayMain()
         {
             Console.WriteLine("This is the main menu. Please press the key that corresponds with the option you want.");
-            Console.WriteLine("1. Create activity");
-            Console.WriteLine("2. Edit user profile");
+            Console.WriteLine("1. Activities");
+            Console.WriteLine("2. My Profile");
             Console.WriteLine("3. Logout");
             Console.WriteLine("q. Quit the program");
             Console.Write("Option: ");
