@@ -2,14 +2,14 @@
 
 namespace ExerciseClub
 {
-    public class Menu
+    public class MenuController
     {
-        //Fields
+        /*//Fields Unnessary to store these inputs
         private string _code;
-        private string _back;
+        private string _back;*/
 
         //Constructor
-        public Menu()
+        public MenuController()
         {
         }
 
@@ -104,76 +104,54 @@ namespace ExerciseClub
         }
 
         /// <summary>
-        /// Checks the input from the user and does something depending on input
+        /// Runs the main menu
         /// </summary>
-        public string CheckInput()
+        public string MainMenu()
         {
-            //Console.Clear();
+            //Display intial menu
+            Console.Clear();
             Display();
-            _code = Console.ReadLine();
-            _back = "0. Return to main menu";
-            string c1 = "new Activity";
-            string c2 = "editProfile";
-            string c3 = "logout";
-            string c0 = "back";
-            string cd = "default";
-            string quit = "quit";
-
-            switch (_code)
+            string input = Console.ReadLine();
+            string output = "";
+            //Loop until valid input
+            do
             {
-                case "1":
-                    
-                    Console.Clear();
-                    Console.WriteLine("Here you can create an activity!");
-                    Console.WriteLine(_back);
-                    Console.WriteLine("q. Quit the program");
-                    Console.Write("Option: ");
-                    return c1;
-                case "2":
-                    Console.Clear();
-                    Console.WriteLine("Here you can edit your user profile! (to be implemented)");
-                    Console.WriteLine(_back);
-                    Console.WriteLine("q. Quit the program");
-                    Console.Write("Option: ");
-                    return c2;
-                case "3":
-                    Console.Clear();
-                    Console.WriteLine("Here you can logout!");
-                    Console.WriteLine(_back);
-                    Console.WriteLine("q. Quit the program");
-                    Console.Write("Option: ");
-                    return c3;
-                case "0":
-                    Console.Clear();
-                    Display();
-                    return c0;
-                case "q":
-                    return quit;
-                default:
-                    Console.WriteLine("Please enter one of the numbers that corresponds with the option you want.");
-                    return cd;
-            }
+                switch (input.ToLower())
+                {
+                    case "1":
+                    case "activity":
+                        output = "Activity";
+                        break;
+                    case "2":
+                    case "profile":
+                        output = "Profile";
+                        break;
+                    case "3":
+                    case "logout":
+                        output = "logout";
+                        break;
+                    case "q":
+                        output = "quit";
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid option.");
+                        Display();
+                        input = Console.ReadLine();
+                        break;
+                }
+            } while (output == "");
+            return output;
         }
 
-        /// <summary>
-        /// Runs the menu.
-        /// </summary>
-        //public void RunMenu()
-        //{
-         //   Display();
-         //   do
-         //   {
-          //      CheckInput();
-         //   } while (_code != "0");
-        //    Console.Clear();
-        //    Display();
-        //}
+        public string ActivityMenu()
+        {
+
+            return "";
+        }
 
 
-        /// <summary>
-        /// This is the initial menu display showing the options available
-        /// </summary>
-        public void Display()
+        //Private Methods
+        private void Display()
         {
             Console.WriteLine("This is the main menu. Please press the key that corresponds with the option you want.");
             Console.WriteLine("1. Create activity");

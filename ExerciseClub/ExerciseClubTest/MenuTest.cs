@@ -10,7 +10,7 @@ namespace ExerciseClubTest
         [Test]
 		public void TestMenuResult ()
 		{
-			Menu mainMenu = new Menu();
+			MenuController mainMenu = new MenuController();
 			string option1 = mainMenu.Option1 ();
 			string option2 = mainMenu.Option2 ();
 			string option3 = mainMenu.Option3 ();

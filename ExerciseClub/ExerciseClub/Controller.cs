@@ -13,7 +13,7 @@ namespace ExerciseClub
         private List<Activity> _activities;
         private DatabaseController _profileDatabase; //Save/load profiles
         private DatabaseController _activityDatabase; //Save/load activities
-        private Menu _mainMenu;
+        private MenuController _Menu;
         private Profile currentLogin;
         private Activity currentActivity; //Probably unnessecary 
 
@@ -33,7 +33,7 @@ namespace ExerciseClub
             _activities = new List<Activity>();
             _profileDatabase = new DatabaseController("info/profiles.txt");
             _activityDatabase = new DatabaseController("info/activities.txt");
-            _mainMenu = new Menu();
+            _Menu = new MenuController();
             Quit = false;
             currentLogin = null;
             currentActivity = null;
@@ -79,12 +79,14 @@ namespace ExerciseClub
                     //Show account details
                     Console.Clear();
                     Console.WriteLine("Welcome user: " + currentLogin.Username + " (" + currentLogin.Name + ", " + currentLogin.Age + ", " + currentLogin.Location + ")");
-                    //_mainMenu.Display();
-                    input = _mainMenu.CheckInput();
-                    if (input == "new Activity")
+                    
+                    //Display menu
+                    input = _Menu.MainMenu();
+                    if (input == "Activity")
                     {
+
                         //Create new activity and add to _activities
-                        string[] temp = _mainMenu.CreateActivity().Split(',');
+                        string[] temp = _Menu.CreateActivity().Split(',');
                         var make = new String[temp.Length + 1];
                         temp.CopyTo(make, 1);
                         make[0] = currentLogin.Username;
@@ -102,7 +104,6 @@ namespace ExerciseClub
                         Console.ReadLine();//Force wait for input, will display submenus not yet implemented, causes double enter on quit
                     }
                 }
-                //Add code for edit profile
                 Quit = false;
             }
             Quit = true;
@@ -179,11 +180,11 @@ namespace ExerciseClub
             //User login / Creation
             do
             {
-                string input = _mainMenu.Login();
+                string input = _Menu.Login();
                 if (input == "new")
                 {
                     //Create new user and add to _users
-                    Profile newProfile = MakeProfileFromStringArray(_mainMenu.CreateUser().Split(','));
+                    Profile newProfile = MakeProfileFromStringArray(_Menu.CreateUser().Split(','));
                     _users.Add(newProfile);
                     currentLogin = newProfile;
                 }
